@@ -127,7 +127,8 @@ a:hover { color: var(--amber); }
 .page-head { background: #000; color: var(--cream); padding: 180px 24px 140px 24px; overflow: hidden; }
 .page-title { font-weight: 700; letter-spacing: -0.05em; font-size: clamp(72px, 13vw, 260px); line-height: 0.9; }
 .page-lede { font-family: var(--display); font-weight: 600 !important; letter-spacing: -0.02em; line-height: 1.45; color: #f5f5f7; }
-.page-sub { color: rgba(245,245,247,0.72); opacity: 1; }
+.page-sub { color: var(--ink); opacity: 0.7; }
+.page-head .page-sub { color: rgba(245,245,247,0.72); opacity: 1; }
 .inquiry-arrow { top: 180px; }
 .h-section { font-weight: 700; letter-spacing: -0.04em; font-size: clamp(48px, 6vw, 96px); line-height: 1; }
 .split, .vision, .gallery, .gear-section, .class-grid, .info-section { padding-top: 140px; padding-bottom: 0; }
@@ -255,8 +256,9 @@ html.m-leaving body::after { transform: translateY(0); }
 }
 
 /* ============================================================
-   최소 폰트 크기 22px (본문) (모든 화면 공통)
+   최소 폰트 크기 22px — 데스크톱 전용 (768px 이상)
    ============================================================ */
+@media (min-width: 768px) {
 body { font-size: 22px !important; }
 .page-sub, .split .copy p, .split .copy .list, .vision p, .info-section > p,
 .gear-card p, .gear-list, .class-card p, .class-card .num, .tutor-card .career,
@@ -289,11 +291,7 @@ body { font-size: 22px !important; }
 .footer-sub .brand { font-size: 24px !important; }
 .class-card .num { padding: 6px 14px; }
 .info-table { min-width: 760px; }
-@media (max-width: 767px) {
-  .featured-lede { font-size: 22px !important; }
-  .page-lede { font-size: 22px !important; }
-  .site-nav, .site-nav--home { font-size: 22px !important; }
-}
+} /* end @media (min-width: 768px) — 22px 최소 폰트 */
 
 /* 사진 호버 확대 — 느리게 */
 .m-img > img { transition: scale 1.6s var(--ez), transform 3s var(--ez) !important; }
@@ -313,9 +311,7 @@ body { font-size: 22px !important; }
 .inquiry-arrow { right: var(--gutter); }
 .page-sub, .split .copy p, .vision p, .info-section > p, .class-card p, .gear-card p { line-height: 1.8; }
 @media (max-width: 767px) {
-  :root { --gutter: 24px; }
-  .page-lede { font-size: 22px !important; }
-  .featured-lede { font-size: 22px !important; }
+  :root { --gutter: 20px; }
 }
 
 /* 메인 Studio & Lesson — 느린 라이즈 */
@@ -328,4 +324,142 @@ body { font-size: 22px !important; }
   -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
   -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 35%, transparent 100%);
   mask-image: linear-gradient(to bottom, #000 0%, #000 35%, transparent 100%);
+}
+
+/* ============================================================
+   모바일 완벽 대응 (767px 이하)
+   ============================================================ */
+@media (max-width: 767px) {
+  /* ── 기본 폰트 ── */
+  body { font-size: 16px !important; }
+
+  /* ── 네비게이션 ── */
+  .site-nav, .site-nav--home { height: 56px !important; font-size: 16px !important; }
+  .site-nav--home::before, .site-nav .brand { font-size: 18px !important; }
+  .nav-links a { font-size: 16px !important; }
+  .hamburger { font-size: 20px !important; width: 44px !important; height: 44px !important; }
+
+  /* ── 모바일 메뉴 ── */
+  .mobile-menu { width: 75vw; }
+  .mobile-menu a { font-size: 28px !important; }
+
+  /* ── 히어로 ── */
+  .hero { min-height: 480px; }
+  .hero-copy { padding-top: 72px !important; }
+  .wordmark-mobile { font-size: clamp(48px, 14vw, 90px) !important; }
+  .hero-controls { right: 20px !important; bottom: 24px !important; }
+  .hero-controls button { font-size: 18px !important; }
+  .hero-scroll-cue { font-size: 11px !important; }
+
+  /* ── 피처드 (홈) ── */
+  .featured { padding-top: 72px !important; padding-bottom: 88px !important; }
+  .display-xl { font-size: clamp(40px, 11vw, 64px) !important; }
+  .featured-lede { font-size: 17px !important; max-width: none !important; }
+  .featured-grid { grid-template-columns: 1fr !important; row-gap: 16px !important; margin-top: 48px !important; }
+  .featured-grid .stack { gap: 16px !important; }
+  .view-all-row { margin-top: 20px !important; }
+  .btn-outline { font-size: 15px !important; padding: 10px 20px !important; }
+  .view-all-row .main { font-size: 15px !important; }
+  .view-all-row .sub { font-size: 12px !important; }
+
+  /* ── 서브페이지 헤더 ── */
+  .page-head { padding-top: 96px !important; padding-bottom: 56px !important; }
+  .page-title { font-size: clamp(36px, 10vw, 56px) !important; }
+  .page-lede { font-size: 17px !important; line-height: 1.6 !important; margin-top: 32px !important; }
+  .page-sub { font-size: 15px !important; line-height: 1.7 !important; }
+
+  /* ── 문의 화살표 (Lesson) ── */
+  .inquiry-arrow { top: 96px !important; right: 20px !important; }
+  .inquiry-arrow svg { width: 44px !important; height: 44px !important; }
+  .inquiry-arrow span { font-size: 13px !important; }
+
+  /* ── 섹션 공통 ── */
+  .h-section { font-size: clamp(28px, 8vw, 44px) !important; }
+  .split, .vision, .gallery, .gear-section, .class-grid, .info-section { padding-top: 72px !important; }
+  .gear-section:nth-of-type(even), .info-section:nth-of-type(even) { padding-bottom: 72px !important; margin-top: 72px !important; }
+
+  /* ── 스플릿 ── */
+  .split { grid-template-columns: 1fr !important; row-gap: 24px !important; }
+  .split .copy { padding-top: 0 !important; }
+  .split .copy p { font-size: 15px !important; }
+  .split .copy .list { font-size: 14px !important; }
+
+  /* ── 비전 ── */
+  .vision p { font-size: 15px !important; }
+
+  /* ── 갤러리 ── */
+  .gallery-cols { column-count: 1 !important; }
+  .gallery h2 { font-size: clamp(36px, 10vw, 56px) !important; }
+
+  /* ── 기어 ── */
+  .gear-features { grid-template-columns: 1fr !important; }
+  .gear-card h3 { font-size: 20px !important; }
+  .gear-card p { font-size: 15px !important; }
+  .gear-list { font-size: 14px !important; }
+
+  /* ── 클래스 그리드 ── */
+  .class-grid { grid-template-columns: 1fr !important; row-gap: 40px !important; }
+  .class-card h2 { font-size: 24px !important; }
+  .class-card p { font-size: 15px !important; }
+  .class-card .num { font-size: 11px !important; padding: 4px 10px !important; }
+
+  /* ── 테이블 ── */
+  .info-table { min-width: 0 !important; width: 100% !important; font-size: 14px !important; }
+  .info-table th { font-size: 11px !important; }
+  .info-table td { font-size: 14px !important; }
+  .info-table th, .info-table td { padding: 12px 10px 12px 0 !important; }
+  .table-title { font-size: 17px !important; margin-top: 40px !important; }
+
+  /* ── 튜터 카드 ── */
+  .tutor-card { grid-template-columns: 1fr !important; row-gap: 20px !important; }
+  .tutor-card .name { font-size: 24px !important; }
+  .tutor-card .name span { font-size: 14px !important; }
+  .tutor-card .career { font-size: 13px !important; }
+  .tutor-card p { font-size: 15px !important; }
+  .tutor-card p[style*="font-size"], .tutor-card span[style*="font-size"] { font-size: 15px !important; }
+  .tutor-card p[style*="22px"] { font-size: 17px !important; }
+
+  /* ── 프로필 아코디언 ── */
+  .profile-acc summary { font-size: 17px !important; }
+  .profile-acc .acc-body, .profile-acc .acc-body p { font-size: 15px !important; }
+  .profile-acc .acc-body p[style*="font-size"] { font-size: 15px !important; }
+  .profile-acc .acc-body p[style*="13px"] { font-size: 13px !important; }
+  .profile-acc .gear-features { grid-template-columns: 1fr !important; }
+  .profile-acc .gear-card h3 { font-size: 18px !important; }
+  .profile-acc .gear-card p { font-size: 14px !important; }
+
+  /* ── 정보 섹션 ── */
+  .info-section > p { font-size: 15px !important; }
+
+  /* ── 푸터 (홈) ── */
+  .footer-home { padding-top: 56px !important; padding-bottom: 28px !important; }
+  .footer-home .cols { grid-template-columns: 1fr !important; row-gap: 32px !important; }
+  .footer-home .right { text-align: left !important; align-items: flex-start !important; font-size: 15px !important; }
+  .footer-brand { font-size: 20px !important; }
+  .footer-tag { font-size: 11px !important; }
+  .footer-slogan { font-size: clamp(32px, 9vw, 48px) !important; margin-top: 40px !important; }
+  .contact-map h3 { font-size: 18px !important; }
+  .contact-map p { font-size: 15px !important; }
+  .contact-lines { text-align: left !important; font-size: 15px !important; }
+
+  /* ── 푸터 (서브) ── */
+  .footer-sub { margin-top: 56px !important; padding: 28px 20px 20px 20px !important; flex-direction: column !important; align-items: flex-start !important; gap: 12px !important; }
+  .footer-sub .brand { font-size: 17px !important; }
+  .footer-sub .contact-lines { font-size: 14px !important; }
+
+  /* ── 이미지 프레임 ── */
+  .img-frame .frame-label { font-size: 20px !important; left: 16px !important; bottom: 16px !important; }
+  .img-frame, .m-img { border-radius: 12px !important; }
+  .m-img { clip-path: inset(100% 0 0 0 round 12px) !important; }
+  .m-img.m-in { clip-path: inset(0 0 0 0 round 12px) !important; }
+  .gallery-cols img, .gear-card img, .split img, .class-card img, .tutor-card img { border-radius: 12px !important; }
+  .class-card .img-wrap { border-radius: 12px !important; }
+
+  /* ── 라이트박스 ── */
+  .lb-img { max-width: 94vw !important; }
+  .lb-thumbs img { width: 48px !important; height: 32px !important; }
+  .lb-close { font-size: 28px !important; top: 12px !important; right: 12px !important; }
+  .lb-prev, .lb-next { font-size: 32px !important; }
+  .lb-prev { left: 6px !important; }
+  .lb-next { right: 6px !important; }
 }
