@@ -1,132 +1,161 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<!-- ✏️ 여기만 고치면 됨: Our Vision 문구, 푸터의 카카오톡 ID / 이메일 -->
 <meta charset="utf-8">
-<meta name="viewport" content="width=1440">
-<title>About - Wavetone Studio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — Wavetone Studio</title>
+<meta name="description" content="웨이브톤 스튜디오의 공간과 철학 — 실제 음악 제작이 이루어지는 환경.">
+<link rel="canonical" href="https://sungju3115.github.io/wavetone_studio/about.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="About — Wavetone Studio">
+<meta property="og:description" content="실제 음악 제작이 이루어지는 환경에서 음악을 경험할 수 있는 공간.">
+<meta property="og:image" content="https://sungju3115.github.io/wavetone_studio/images/k-005.jpg">
+<meta property="og:url" content="https://sungju3115.github.io/wavetone_studio/about.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  html, body { margin: 0; padding: 0; background: #0A0A0A; }
-  body { font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; color: #F4F0DC; -webkit-font-smoothing: antialiased; }
-  a { color: #F4F0DC; text-decoration: none; }
-  a:hover { color: #3055E8; }
-  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
-</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;family=Noto+Sans+KR:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="apple.css">
+<script>document.documentElement.classList.add('m-js');</script>
 </head>
 <body>
-<div style="width: 1440px; margin: 0 auto; background: #0A0A0A; overflow: hidden; color: #F4F0DC;">
+<div class="page">
 
-  <!-- Nav -->
-  <nav style="display: flex; justify-content: space-between; align-items: center; padding: 24px; font-family: 'Anton', sans-serif; font-size: 19px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.06em;">
-    <a href="index.html" style="color: #F4F0DC;">Wavetone Studio&trade;</a>
-    <div style="display: flex; gap: 32px;">
-      <a href="about.html" style="color: #FF5A1F;">About</a>
-      <a href="lesson.html" style="color: #F4F0DC;">Lesson</a>
-      <a href="https://www.instagram.com/wavetone_st/" target="_blank" rel="noopener" style="color: #F4F0DC;">Contact</a>
+  <nav class="site-nav" aria-label="주 메뉴">
+    <a class="brand" href="index.html">Wavetone Studio™</a>
+    <div class="nav-links">
+      <a href="about.html" class="active">About</a>
+      <a href="gear.html">Sound & Space</a>
+      <a href="lesson.html">Lesson</a>
+      <a href="https://www.instagram.com/wavetone_st/" target="_blank" rel="noopener">Contact</a>
     </div>
+    <button class="hamburger" aria-label="메뉴 열기">☰</button>
   </nav>
+  <div class="menu-backdrop" aria-hidden="true"></div>
+  <div class="mobile-menu" aria-label="모바일 메뉴">
+    <button class="menu-close" aria-label="메뉴 닫기">×</button>
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="gear.html">Sound & Space</a>
+    <a href="lesson.html">Lesson</a>
+    <a href="https://www.instagram.com/wavetone_st/" target="_blank" rel="noopener">Contact</a>
+  </div>
 
-  <!-- About -->
-  <section style="padding: 100px 24px 0 24px;">
-    <h1 style="font-family: 'Anton', sans-serif; font-weight: 400; font-size: 170px; line-height: 0.9; margin: 0; text-transform: uppercase;">About</h1>
-    <p style="font-size: 28px; line-height: 1.7; margin: 80px 0 0 0; max-width: 900px; text-wrap: pretty; font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-weight: 600">웨이브톤 스튜디오는<br>단순히 악기를 배우는 공간이 아니라<br>실제 음악 제작이 이루어지는 환경에서<br>음악을 경험할 수 있는 공간입니다</p>
-    <p style="font-size: 18px; line-height: 2; margin: 40px 0 0 0; max-width: 900px; opacity: 0.85; font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">레코딩 스튜디오 수준의 장비와 빈티지 악기, 앰프들이 준비되어 있습니다.<br>학생들이 직접 좋은 소리를 경험하며 연주와 음악을 배울 수 있도록 만들었습니다.<br>음악을 좋아하는 사람들이 편안하게 모여 좋은 소리를 만들어가는 곳이 되길 바랍니다.</p>
+  <section class="page-head">
+    <h1 class="page-title">About</h1>
+    <p class="page-lede" style="font-weight: 400;">웨이브톤 스튜디오는<br>단순히 악기를 배우는 공간이 아니라<br>실제 음악 제작이 이루어지는 환경에서<br>음악을 경험할 수 있는 공간입니다</p>
+    <p class="page-sub page-sub--about">레코딩 스튜디오 수준의 장비와 빈티지 악기, 앰프들이 준비되어 있습니다.<br>학생들이 직접 좋은 소리를 경험하며 연주와 음악을 배울 수 있도록 만들었습니다.</p>
   </section>
 
-  <!-- Pedals -->
-  <section style="padding: 140px 24px 0 24px; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); column-gap: 24px; align-items: start;">
-    <img data-reveal src="images/gallery-02.jpg" alt="Pedals" style="width: 100%; height: 620px; object-fit: cover; display: block;">
-    <div style="padding-top: 40px;" data-reveal>
-      <h2 style="font-family: 'Anton', sans-serif; font-weight: 400; font-size: 72px; margin: 0; text-transform: uppercase;">Pedals</h2>
-      <p style="font-size: 18px; line-height: 2; margin: 32px 0 0 0; opacity: 0.85; font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-weight: 500">웨이브톤 스튜디오에는 다양한 기타 페달들도 준비되어 있습니다. <br>다양한 페달들을 직접 사용하며 사운드 메이킹을 배울 수 있습니다. <br>록과 블루스, 클래식 레코딩에서 사용되던 다양한 페달 사운드를 직접 경험할 수 있습니다.</p>
-      <p style="font-size: 16px; line-height: 2; margin: 32px 0 0 0; opacity: 0.6; font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-weight: 500">Vintage Fuzz Face<br>79 ProCo Tone RAT, 84 Rat<br>Octavo Fuzz / Boutique Pedals 등</p>
+  <!-- ✏️ Vision: 클라이언트 문구가 오면 아래 두 줄 교체 -->
+  <section class="vision" aria-label="비전">
+    <h2 class="h-section" data-reveal>Our Vision</h2>
+    <p data-reveal style="font-size: 24px; font-weight: 400; margin-bottom: 0; max-width: none;">음악을 좋아하는 사람들이 편안하게 모여 좋은 소리를 만들어가는 곳이 되길 바랍니다<br></p>
+    <p data-reveal style="margin-top: 48px;">잘 만들어진 악기와 앰프가 내는 소리를 직접 들어본 사람은<br>소리를 대하는 기준이 달라진다고 믿습니다.<br>웨이브톤 스튜디오는 그 경험을 배움의 출발점으로 삼습니다.<br>연주하고, 녹음하고, 합주하며 각자의 속도로 음악과 가까워지는 곳.<br>음악이 필요한 순간마다 찾을 수 있는 공간이 되길 바랍니다.</p>
+  </section>
+
+  <section id="gallery" class="gallery">
+    <h2 data-reveal>Gallery</h2>
+    <!-- 큐레이션: 페달 라인업 1장 / 레슨 2장 / 데스크 2장 / 드럼 1장 / 공간 무드 컷 — 총 13장.
+         제외된 사진 파일은 images/ 에 그대로 있음 (k-004, k-007, k-008, k-009, k-011, k-013, g-6396, g-6406, g-6445, guitars-wall, k-006) -->
+    <div class="gallery-cols">
+      <img src="images/k-005.jpg" alt="컨트롤 룸 — 레코딩 데스크와 모니터 스피커">
+      <img src="images/lesson-tele.jpg" alt="텔레캐스터로 진행 중인 기타 레슨">
+      <img src="images/hero-a.jpg" alt="스튜디오 내부 — 악기와 장비">
+      <img src="images/k-003.jpg" alt="빈티지·부티크 기타 페달보드">
+      <img src="images/g-6395.jpg" alt="테이블 위에 줄지어 놓인 기타 페달들">
+      <img src="images/hero-b.jpg" alt="라이브 룸 전경">
+      <img src="images/lesson-strat.jpg" alt="스트라토캐스터를 연주하는 레슨 장면">
+      <img src="images/k-001.jpg" alt="스튜디오 내부 — 악기와 장비">
+      <img src="images/drums.jpg" alt="합주실의 드럼 세트">
+      <img src="images/k-012.jpg" alt="스튜디오 내부 전경">
+      <img src="images/g-6637.jpg" alt="스튜디오 공간 디테일">
+      <img src="images/k-010.jpg" alt="스튜디오 악기 디테일">
     </div>
   </section>
 
-  <!-- Amps -->
-  <section style="padding: 140px 24px 0 24px; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); column-gap: 24px; align-items: start;">
-    <div style="padding-top: 40px;" data-reveal>
-      <h2 style="font-family: 'Anton', sans-serif; font-weight: 400; font-size: 72px; margin: 0; text-transform: uppercase;">Amps</h2>
-      <p style="font-size: 18px; line-height: 2; margin: 32px 0 0 0; opacity: 0.85; font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">여러 오리지널 빈티지 기타 앰프들과 모던한 앰프들이 준비되어 있습니다. <br>각 앰프마다 다른 캐릭터의 기타 사운드를 직접 경험할 수 있습니다. <br>기타는 결국 "소리"로 배우는 악기입니다.</p>
-      <p style="font-size: 16px; line-height: 2; margin: 32px 0 0 0; opacity: 0.6; font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-weight: 500">1966 Fender Super Reverb<br>1964 Fender Tremolux<br>Tweed Bassman<br>Deluxe Reverb Reissue (Pair)<br>Vox AC15 / TB18 / TB35<br>Fender Hot Rod DeVille 등</p>
-    </div>
-    <img data-reveal src="images/gallery-03.jpg" alt="Amps" style="width: 100%; height: 620px; object-fit: cover; display: block;">
-  </section>
-
-  <!-- Microphones -->
-  <section style="padding: 140px 24px 0 24px; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); column-gap: 24px; align-items: start;">
-    <img data-reveal src="images/gallery-04.jpg" alt="Microphones" style="width: 100%; height: 620px; object-fit: cover; display: block;">
-    <div style="padding-top: 40px;" data-reveal>
-      <h2 style="font-family: 'Anton', sans-serif; font-weight: 400; font-size: 72px; margin: 0; text-transform: uppercase;">Microphones</h2>
-      <p style="font-size: 18px; line-height: 2; margin: 32px 0 0 0; opacity: 0.85; font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-weight: 500">다양한 레코딩 마이크들이 준비되어 있습니다.<br>보컬, 어쿠스틱 기타, 일렉 기타, 드럼 등 <br>각 악기에 맞는 마이크를 직접 경험하며 레코딩과 사운드를 배울 수 있습니다. <br>좋은 마이크는 좋은 소리를 배우는 가장 좋은 교재입니다.</p>
-      <p style="font-size: 16px; line-height: 2; margin: 32px 0 0 0; opacity: 0.6; font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; font-weight: 500">Neumann U87<br>AKG C414 ULS (Vintage)<br>Royer R121<br>Neumann KM184 Pair<br>Sennheiser MD421 / MD441<br>Electro-Voice RE20<br>Earthworks SR25 Pair 등</p>
-    </div>
-  </section>
-
-  <!-- Gallery -->
-  <section id="gallery" style="padding: 180px 24px 0 24px;">
-    <h2 data-reveal style="font-family: 'Anton', sans-serif; font-weight: 400; font-size: 120px; margin: 0 0 56px 0; text-transform: uppercase;">Gallery</h2>
-    <div style="column-count: 3; column-gap: 16px;">
-      <img src="images/gallery-01.jpg" alt="" style="width: 100%; display: block; margin-bottom: 16px;">
-      <img src="images/gallery-02.jpg" alt="" style="width: 100%; display: block; margin-bottom: 16px;">
-      <img src="images/gallery-03.jpg" alt="" style="width: 100%; display: block; margin-bottom: 16px;">
-      <img src="images/gallery-04.jpg" alt="" style="width: 100%; display: block; margin-bottom: 16px;">
-      <img src="images/gallery-05.jpg" alt="" style="width: 100%; display: block; margin-bottom: 16px;">
-      <img src="images/gallery-06.jpg" alt="" style="width: 100%; display: block; margin-bottom: 16px;">
-      <img src="images/gallery-07.jpg" alt="" style="width: 100%; display: block; margin-bottom: 16px;">
-      <img src="images/gallery-08.jpg" alt="" style="width: 100%; display: block; margin-bottom: 16px;">
-      <img src="images/gallery-09.jpg" alt="" style="width: 100%; display: block; margin-bottom: 16px;">
-      <img src="images/gallery-10.jpg" alt="" style="width: 100%; display: block; margin-bottom: 16px;">
-      <img src="images/gallery-11.jpg" alt="" style="width: 100%; display: block; margin-bottom: 16px;">
-      <img src="images/gallery-12.jpg" alt="" style="width: 100%; display: block; margin-bottom: 16px;">
-      <img src="images/gallery-13.jpg" alt="" style="width: 100%; display: block; margin-bottom: 16px;">
-      <img src="images/gallery-14.jpg" alt="" style="width: 100%; display: block; margin-bottom: 16px;">
-      <img src="images/gallery-15.jpg" alt="" style="width: 100%; display: block; margin-bottom: 16px;">
-      <img src="images/gallery-16.jpg" alt="" style="width: 100%; display: block; margin-bottom: 16px;">
-      <img src="images/gallery-17.jpg" alt="" style="width: 100%; display: block; margin-bottom: 16px;">
-      <img src="images/gallery-18.jpg" alt="" style="width: 100%; display: block; margin-bottom: 16px;">
-      <img src="images/gallery-19.jpg" alt="" style="width: 100%; display: block; margin-bottom: 16px;">
-      <img src="images/gallery-20.jpg" alt="" style="width: 100%; display: block; margin-bottom: 16px;">
-      <img src="images/gallery-21.jpg" alt="" style="width: 100%; display: block; margin-bottom: 16px;">
-      <img src="images/gallery-22.jpg" alt="" style="width: 100%; display: block; margin-bottom: 16px;">
-      <img src="images/gallery-23.jpg" alt="" style="width: 100%; display: block; margin-bottom: 16px;">
-      <img src="images/gallery-24.jpg" alt="" style="width: 100%; display: block; margin-bottom: 16px;">
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer style="display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid rgba(244,240,220,0.25); margin-top: 140px; padding: 40px 24px 32px 24px;">
-    <div style="font-family: 'Anton', sans-serif; font-size: 20px; text-transform: uppercase; letter-spacing: 0.06em;">Wavetone Studio&trade;</div>
-    <div style="display: flex; gap: 64px; font-size: 14px; line-height: 1.8; opacity: 0.8;">
-      <p style="margin: 0;">주소<br>강원도 동해시 한섬로 28-4, 2F</p>
-      <p style="margin: 0;">문의<br><a href="https://www.instagram.com/wavetone_st/" target="_blank" rel="noopener" style="color: #F4F0DC; text-decoration: underline; text-underline-offset: 4px;">Instagram ↗</a></p>
+  <footer class="footer-sub">
+    <div class="brand">Wavetone Studio™</div>
+    <!-- ✏️ 카카오톡 ID / 이메일 교체 -->
+    <div class="contact-lines">
+      <a href="https://www.instagram.com/wavetone_st/" target="_blank" rel="noopener" style="text-decoration: none;"><span style="font-weight: 600;">인스타그램</span> <span style="font-weight: 400;">@wavetone_st</span></a><br>
+      <span style="font-weight: 600;">카카오톡</span> <span style="font-weight: 400;">준비 중</span><br>
+      <span style="font-weight: 600;">이메일</span> <span style="font-weight: 400;">준비 중</span>
+      <!-- 전화번호: 사업자 등록 후 활성화 예정
+      <br><a href="tel:000-0000-0000">전화 000-0000-0000</a>
+      -->
     </div>
   </footer>
+
+  <div class="lightbox" aria-hidden="true">
+    <button class="lb-close" aria-label="닫기">×</button>
+    <button class="lb-prev" aria-label="이전 사진">‹</button>
+    <button class="lb-next" aria-label="다음 사진">›</button>
+    <img class="lb-img" alt="">
+    <div class="lb-thumbs"></div>
+  </div>
 </div>
 
 <script>
-(function() {
-  var els = Array.from(document.querySelectorAll('[data-reveal]'));
-  els.forEach(function(el) {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(48px)';
-    el.style.transition = 'opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1)';
-  });
-  var io = new IntersectionObserver(function(entries) {
-    entries.forEach(function(en) {
+(function () {
+  var $ = function (s) { return document.querySelector(s); };
+  var $$ = function (s) { return Array.prototype.slice.call(document.querySelectorAll(s)); };
+  var menu = $('.mobile-menu'), backdrop = $('.menu-backdrop');
+  function setMenu(open) { menu.classList.toggle('open', open); backdrop.classList.toggle('open', open); }
+  $('.hamburger').addEventListener('click', function () { setMenu(true); });
+  $('.menu-close').addEventListener('click', function () { setMenu(false); });
+  backdrop.addEventListener('click', function () { setMenu(false); });
+  $$('.mobile-menu a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (en) {
       if (en.isIntersecting) {
-        en.target.style.opacity = '1';
-        en.target.style.transform = 'translateY(0)';
-      } else {
-        en.target.style.opacity = '0';
-        en.target.style.transform = 'translateY(48px)';
+        en.target.classList.add('is-in');
+      } else if (en.boundingClientRect.top > window.innerHeight) {
+        en.target.classList.remove('is-in');
       }
     });
   }, { threshold: 0.15 });
-  els.forEach(function(el) { io.observe(el); });
+  $$('[data-reveal]').forEach(function (el) { io.observe(el); });
+  /* 갤러리 라이트박스 */
+  var lb = $('.lightbox'), lbImg = $('.lb-img'), lbThumbs = $('.lb-thumbs');
+  var gImgs = $$('.gallery-cols img'), k = 0;
+  function renderLb() {
+    lbImg.src = gImgs[k].src;
+    var html = '';
+    var n = gImgs.length;
+    for (var d = -2; d <= 2; d++) {
+      var i = (k + d + n * 10) % n;
+      html += '<img data-i="' + i + '" class="' + (d === 0 ? 'cur' : '') + '" src="' + gImgs[i].src + '" alt="">';
+    }
+    lbThumbs.innerHTML = html;
+    $$('.lb-thumbs img').forEach(function (t) {
+      t.addEventListener('click', function (e) { e.stopPropagation(); k = parseInt(t.getAttribute('data-i'), 10); renderLb(); });
+    });
+  }
+  function openLb(i) { k = i; renderLb(); lb.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeLb() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+  function stepLb(d) { k = (k + d + gImgs.length) % gImgs.length; renderLb(); }
+  gImgs.forEach(function (img, i) {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', function () { openLb(i); });
+  });
+  lb.addEventListener('click', function () { closeLb(); });
+  lbImg.addEventListener('click', function (e) { e.stopPropagation(); });
+  $('.lb-close').addEventListener('click', function (e) { e.stopPropagation(); closeLb(); });
+  $('.lb-prev').addEventListener('click', function (e) { e.stopPropagation(); stepLb(-1); });
+  $('.lb-next').addEventListener('click', function (e) { e.stopPropagation(); stepLb(1); });
+  window.addEventListener('keydown', function (e) {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft') stepLb(-1);
+    if (e.key === 'ArrowRight') stepLb(1);
+  });
 })();
 </script>
+<script src="motion.js"></script>
 </body>
 </html>

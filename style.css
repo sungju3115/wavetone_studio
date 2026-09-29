@@ -1,0 +1,402 @@
+/* ============================================================
+   Wavetone Studio v3 — 공통 스타일
+   ✏️ 여기만 고치면 됨:
+   - 카카오톡 ID / 이메일: 각 html 푸터의 contact-lines
+   - 수강료: lesson.html Tuition 표
+   - 장비 설명·Vision 문구: gear.html / about.html 플레이스홀더
+   ============================================================ */
+:root {
+  --bg: #0A0A0A;
+  --cream: #F4F0DC;
+  --navy: #1F2F5E;        /* 스크롤 전환 배경 (짙은 남색) */
+  --amber: #C05A2E;       /* 톤다운 웜 포인트 (번트 오렌지) */
+  --hairline: rgba(244, 240, 220, 0.25);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); }
+html { overflow-x: clip; }
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  color: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+a { color: var(--cream); text-decoration: none; }
+a:hover { color: var(--amber); }
+img { max-width: 100%; }
+.anton { font-family: 'Anton', sans-serif; font-weight: 400; }
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.muted { opacity: 0.6; }
+
+.page { min-width: 0; width: 100%; margin: 0 auto; background: var(--bg); }
+
+/* ---------- 리빌 모션 ---------- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(48px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+[data-reveal].is-in { opacity: 1; transform: translateY(0); }
+
+/* ---------- 네비 ---------- */
+.site-nav {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 24px;
+  font-family: 'Anton', sans-serif; font-size: 19px; font-weight: 400;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.site-nav .brand { color: var(--cream); min-height: 44px; display: inline-flex; align-items: center; }
+.nav-links { display: flex; gap: 32px; }
+.nav-links a { min-height: 44px; display: inline-flex; align-items: center; }
+.nav-links a.active { color: var(--amber); }
+
+/* 홈 전용: 고정 + 스크롤 시 슬라이드 인 (데스크톱 전용 JS) */
+.site-nav--home {
+  position: fixed; top: 0; left: 0; right: 0; width: 100%;
+  margin-left: 0;
+  z-index: 50; justify-content: flex-end;
+  padding: 20px 24px; will-change: transform;
+  transform: translateY(var(--nav-y, 200px));
+}
+.site-nav--home .nav-shift { display: flex; gap: 32px; will-change: transform; }
+
+/* 햄버거 + 모바일 오버레이 */
+.hamburger {
+  display: none; background: none; border: 1px solid var(--cream);
+  color: var(--cream); width: 44px; height: 44px; cursor: pointer;
+  font-size: 18px; line-height: 1; padding: 0;
+}
+.hamburger:active { transform: scale(0.95); }
+.menu-backdrop {
+  position: fixed; inset: 0; z-index: 99;
+  background: rgba(10, 10, 10, 0.5);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s;
+}
+.menu-backdrop.open { opacity: 1; visibility: visible; }
+.mobile-menu {
+  position: fixed; top: 0; right: 0; bottom: 0; width: 66.666vw; z-index: 100;
+  background: var(--navy); display: flex; flex-direction: column;
+  align-items: flex-start; justify-content: center; gap: 32px; padding: 24px;
+  transform: translateX(100%); visibility: hidden;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.5s;
+  box-shadow: -24px 0 48px rgba(0, 0, 0, 0.4);
+}
+.mobile-menu.open { transform: translateX(0); visibility: visible; }
+.mobile-menu a {
+  font-family: 'Anton', sans-serif; font-size: 40px;
+  text-transform: uppercase; letter-spacing: 0.04em;
+  min-height: 44px; display: inline-flex; align-items: center;
+}
+.mobile-menu a.active { color: var(--amber); }
+.menu-close {
+  position: absolute; top: 24px; right: 24px;
+  background: none; border: 1px solid var(--cream); color: var(--cream);
+  width: 44px; height: 44px; font-size: 20px; cursor: pointer; padding: 0;
+}
+
+/* ---------- 히어로 (홈) ---------- */
+.hero { position: sticky; top: 0; height: 900px; background: var(--bg); z-index: 0; overflow: hidden; }
+.hero-slide {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; opacity: 0; transition: opacity 0.6s ease; z-index: 0;
+}
+.hero-slide.active { opacity: 0.82; }
+.hero-copy { position: absolute; top: 0; left: 0; right: 0; padding: 24px 24px 0 24px; will-change: transform, opacity; }
+/* 워드마크: 글자 변형 없이 Anton 원형 + 균일 자간 */
+.wordmark {
+  font-family: 'Anton', sans-serif; font-weight: 400;
+  font-size: clamp(64px, 12.2vw, 175px); line-height: 0.92; margin: 0;
+  color: var(--cream); text-transform: uppercase; white-space: nowrap;
+  display: flex; justify-content: space-between; letter-spacing: 0.015em;
+}
+.wordmark .tm { font-size: 0.36em; vertical-align: top; letter-spacing: 0; }
+.wordmark-mobile {
+  display: none; font-family: 'Anton', sans-serif; font-weight: 400;
+  font-size: clamp(72px, 19vw, 120px); line-height: 0.92; margin: 0;
+  color: var(--cream); text-transform: uppercase; letter-spacing: 0.015em;
+}
+.hero-controls {
+  position: absolute; right: 20px; bottom: 36px; z-index: 3;
+  display: flex; align-items: center; gap: 8px;
+}
+.hero-controls button {
+  background: rgba(10, 10, 10, 0.45); border: 1px solid var(--cream); color: var(--cream);
+  width: 44px; height: 44px; font-size: 18px; cursor: pointer; padding: 0; border-radius: 3px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.hero-controls button:hover { background: var(--cream); color: var(--bg); }
+.hero-controls button:active { transform: scale(0.95); }
+
+/* ---------- 피처드 (홈 남색 섹션) ---------- */
+.featured {
+  position: relative; z-index: 2; background: var(--bg);
+  padding: 96px 24px 120px 24px; color: var(--cream); will-change: background-color;
+}
+.display-xl {
+  font-family: 'Anton', sans-serif; font-weight: 400;
+  font-size: clamp(56px, 10.4vw, 150px); line-height: 0.9; margin: 0; text-transform: uppercase;
+}
+.display-xl.right { text-align: right; }
+.featured-lede {
+  font-size: 18px; line-height: 1.5; text-transform: uppercase; letter-spacing: 0.04em;
+  max-width: 380px; margin: 64px 0 0 0; font-weight: 600;
+}
+.featured-grid {
+  display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  column-gap: 24px; margin-top: 96px; align-items: end;
+}
+.featured-grid .stack { display: flex; flex-direction: column; gap: 24px; }
+.img-frame { position: relative; overflow: hidden; display: block; }
+.img-frame img {
+  width: 100%; object-fit: cover; display: block;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.img-frame:hover img { transform: scale(1.03); }
+.featured-grid .big img { aspect-ratio: 1.45 / 1; height: auto; }
+.featured-grid .small img { aspect-ratio: 2.16 / 1; height: auto; }
+.img-frame .frame-label {
+  position: absolute; left: 0; right: 0; bottom: 32px; text-align: center; margin: 0;
+  font-family: 'Anton', sans-serif; font-size: clamp(24px, 2.8vw, 40px);
+  text-transform: uppercase; line-height: 1.1; color: var(--cream);
+}
+.view-all-row { display: flex; justify-content: flex-end; margin-top: 24px; }
+.btn-outline {
+  display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+  border: 1px solid var(--cream); border-radius: 3px; padding: 10px 22px; min-height: 44px;
+  font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--cream); background: none; cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.btn-outline:hover { background: var(--cream); color: var(--bg); }
+.view-all-row .btn-outline:hover { color: var(--navy); }
+.view-all-row .sub { font-size: 12px; opacity: 0.7; font-family: 'Anton', sans-serif; }
+.view-all-row .main { font-family: 'Anton', sans-serif; font-size: 14px; }
+.subjects {
+  display: flex; justify-content: space-between; margin-top: 88px;
+  font-family: 'Anton', sans-serif; font-size: 14px; text-transform: uppercase; opacity: 0.8;
+}
+
+/* ---------- 서브페이지 공통 ---------- */
+.page-head { padding: 100px 24px 0 24px; position: relative; }
+.page-title {
+  font-family: 'Anton', sans-serif; font-weight: 400;
+  font-size: clamp(64px, 11.8vw, 170px); line-height: 0.9; margin: 0; text-transform: uppercase;
+}
+.page-lede { font-size: clamp(20px, 2vw, 28px); line-height: 1.7; margin: 80px 0 0 0; max-width: 900px; text-wrap: pretty; font-weight: 600; }
+.page-sub { font-size: 18px; line-height: 2; margin: 40px 0 0 0; max-width: 600px; opacity: 0.85; }
+.page-sub--about { max-width: 700px; }
+
+.split {
+  padding: 140px 24px 0 24px;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  column-gap: 24px; align-items: start;
+}
+.split img { width: 100%; aspect-ratio: 1.1 / 1; height: auto; object-fit: cover; display: block; }
+.split .copy { padding-top: 40px; }
+.h-section { font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(40px, 5vw, 72px); margin: 0; text-transform: uppercase; }
+.split .copy p { font-size: 18px; line-height: 2; margin: 32px 0 0 0; opacity: 0.85; font-weight: 500; }
+.split .copy .list { font-size: 16px; opacity: 0.6; }
+
+/* ---------- Vision ---------- */
+.vision { padding: 140px 24px 0 24px; }
+.vision p { font-size: 18px; line-height: 2; margin: 32px 0 0 0; max-width: 720px; opacity: 0.85; }
+
+/* ---------- 갤러리 ---------- */
+.gallery { padding: 180px 24px 0 24px; }
+.gallery h2 { font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(48px, 8.3vw, 120px); margin: 0 0 56px 0; text-transform: uppercase; }
+.gallery-cols { column-count: 3; column-gap: 16px; }
+.gallery-cols img { width: 100%; display: block; margin-bottom: 16px; }
+
+/* ---------- 갤러리 라이트박스 ---------- */
+.lightbox {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(10, 10, 10, 0.94);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px;
+  opacity: 0; visibility: hidden; transition: opacity 0.35s ease, visibility 0.35s;
+}
+.lightbox.open { opacity: 1; visibility: visible; }
+.lb-img { max-width: 82vw; max-height: 68vh; object-fit: contain; display: block; }
+.lb-thumbs { display: flex; gap: 12px; align-items: center; }
+.lb-thumbs img { width: 96px; height: 64px; object-fit: cover; cursor: pointer; opacity: 0.4; transition: opacity 0.25s ease; }
+.lb-thumbs img.cur { opacity: 1; }
+.lb-close, .lb-prev, .lb-next {
+  position: absolute; background: none; border: none; color: var(--cream);
+  cursor: pointer; padding: 8px 16px; line-height: 1; z-index: 2;
+}
+.lb-close { top: 20px; right: 24px; font-size: 36px; }
+.lb-prev, .lb-next { top: 50%; transform: translateY(-50%); font-size: 48px; }
+.lb-prev { left: 16px; }
+.lb-next { right: 16px; }
+.lb-prev:hover, .lb-next:hover, .lb-close:hover { color: var(--amber); }
+@media (max-width: 767px) {
+  .lb-img { max-width: 94vw; }
+  .lb-thumbs img { width: 56px; height: 40px; }
+}
+
+/* ---------- Gear ---------- */
+.gear-section { padding: 140px 24px 0 24px; }
+.gear-features { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-top: 56px; }
+.gear-card { }
+.gear-card img { width: 100%; aspect-ratio: 1.2 / 1; height: auto; object-fit: cover; display: block; }
+.gear-card h3 { font-family: 'Anton', sans-serif; font-weight: 400; font-size: 28px; margin: 20px 0 0 0; text-transform: uppercase; }
+.gear-card p { font-size: 15px; line-height: 1.9; margin: 10px 0 0 0; opacity: 0.7; }
+.gear-list { font-size: 16px; line-height: 2.2; margin: 48px 0 0 0; opacity: 0.6; max-width: 600px; }
+.gear-list b { opacity: 1; }
+
+/* ---------- Lesson ---------- */
+.class-grid {
+  padding: 120px 24px 0 24px;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 16px; row-gap: 64px;
+}
+.class-card .img-wrap { position: relative; }
+.class-card img { width: 100%; aspect-ratio: 1 / 1; height: auto; object-fit: cover; display: block; }
+.class-card .num { position: absolute; top: 12px; left: 12px; font-size: 12px; font-weight: 700; text-transform: uppercase; }
+.class-card h2 { font-family: 'Anton', sans-serif; font-weight: 400; font-size: 40px; margin: 20px 0 0 0; text-transform: uppercase; }
+.class-card p { font-size: 16px; line-height: 1.9; margin: 12px 0 0 0; opacity: 0.8; font-weight: 500; }
+
+.inquiry-arrow {
+  position: absolute; right: 24px; top: 100px;
+  display: flex; flex-direction: column; align-items: flex-end; gap: 16px;
+  color: var(--cream);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), color 0.35s ease;
+}
+.inquiry-arrow:hover { transform: scale(1.12); color: var(--amber); }
+.inquiry-arrow span { font-size: 24px; }
+
+.info-section { padding: 140px 24px 0 24px; }
+.info-section > p { font-size: 18px; line-height: 2; margin: 32px 0 0 0; opacity: 0.85; }
+.table-title { font-size: 18px; font-weight: 600; margin: 56px 0 0 0; }
+.table-wrap { overflow-x: auto; margin-top: 40px; -webkit-overflow-scrolling: touch; }
+.table-title + .table-wrap { margin-top: 16px; }
+.info-table { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 16px; }
+.info-table th, .info-table td { border: 1px solid var(--hairline); padding: 16px 20px; text-align: left; }
+.info-table th { font-family: 'Anton', sans-serif; font-weight: 400; text-transform: uppercase; letter-spacing: 0.04em; font-size: 15px; }
+.info-table td { opacity: 0.85; }
+
+.tutor-card {
+  margin-top: 40px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  column-gap: 24px; align-items: start;
+}
+.tutor-card + .tutor-card { margin-top: 64px; }
+.tutor-card img { width: 100%; aspect-ratio: 1 / 1.15; height: auto; object-fit: cover; display: block; }
+.tutor-card .name { font-family: 'Anton', sans-serif; font-size: 40px; margin: 8px 0 0 0; text-transform: uppercase; }
+.tutor-card .career { font-size: 16px; line-height: 2; margin: 24px 0 0 0; opacity: 0.6; }
+
+.profile-acc { margin-top: 56px; border-top: 1px solid var(--hairline); }
+.profile-acc details { border-bottom: 1px solid var(--hairline); }
+.profile-acc summary {
+  cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;
+  padding: 22px 4px; font-size: 18px; font-weight: 600; transition: opacity 0.25s ease;
+}
+.profile-acc summary::-webkit-details-marker { display: none; }
+.profile-acc summary::after { content: '+'; font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 400; opacity: 0.6; transition: transform 0.3s ease; }
+.profile-acc details[open] summary::after { transform: rotate(45deg); }
+.profile-acc summary:hover { opacity: 0.7; }
+.profile-acc .acc-wrap { overflow: hidden; height: 0; transition: height 0.5s cubic-bezier(0.65, 0, 0.35, 1); }
+.profile-acc .acc-body { padding: 4px 4px 32px 4px; font-size: 15px; line-height: 2; opacity: 0; transition: opacity 0.35s ease; }
+.profile-acc details[open] .acc-body { opacity: 0.9; }
+
+/* ---------- 푸터 ---------- */
+.footer-home { position: relative; z-index: 2; background: var(--bg); color: var(--cream); padding: 88px 24px 40px 24px; }
+.footer-home .cols { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); column-gap: 96px; }
+.footer-home .left { display: flex; flex-direction: column; justify-content: space-between; }
+.footer-brand { font-family: 'Anton', sans-serif; font-size: 22px; letter-spacing: 0.5em; text-transform: uppercase; line-height: 1.2; }
+.footer-tag { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.7; margin-top: 8px; }
+.footer-slogan { font-family: 'Anton', sans-serif; font-weight: 400; font-size: clamp(40px, 6.1vw, 88px); line-height: 1.06; margin: 120px 0 0 0; text-transform: uppercase; }
+.slogan-mobile { display: none; }
+.footer-home .right {
+  font-size: 16px; line-height: 2; text-transform: uppercase; text-align: right;
+  display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-end; gap: 48px;
+}
+.contact-map h3 { font-family: 'Anton', sans-serif; font-weight: 400; font-size: 28px; margin: 0 0 16px 0; text-transform: uppercase; }
+.contact-map p { font-size: 16px; line-height: 2; margin: 0; }
+.contact-map a { text-decoration: underline; text-underline-offset: 4px; }
+.contact-lines { font-size: 16px; line-height: 2.2; text-align: right; }
+.contact-lines a { text-decoration: underline; text-underline-offset: 4px; }
+
+.footer-sub {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  border-top: 1px solid var(--hairline); margin-top: 140px; padding: 40px 24px 32px 24px;
+  gap: 24px; flex-wrap: wrap;
+}
+.footer-sub .brand { font-family: 'Anton', sans-serif; font-size: 20px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+/* ============================================================
+   초대형 화면 1920px 이상 — 1440 비율 그대로 vw 스케일
+   ============================================================ */
+@media (min-width: 1920px) {
+  .hero { height: min(62.5vw, 100vh); }
+  .wordmark { font-size: 12.2vw; }
+  .display-xl { font-size: 10.4vw; }
+  .page-title { font-size: 11.8vw; }
+  .footer-slogan { font-size: 6.1vw; }
+  .gallery h2 { font-size: 8.3vw; }
+  .h-section { font-size: 5vw; }
+  .img-frame .frame-label { font-size: 2.8vw; }
+  .page-lede { font-size: 1.95vw; }
+}
+
+/* ============================================================
+   반응형 — 태블릿 768~1199px
+   ============================================================ */
+@media (max-width: 1199px) {
+  .hero { height: 700px; }
+  .featured-lede { max-width: 420px; }
+  .footer-home .cols { column-gap: 48px; }
+  .class-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .gallery-cols { column-count: 2; }
+  .gear-features { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   반응형 — 모바일 767px 이하
+   ============================================================ */
+@media (max-width: 767px) {
+  body { font-size: 14px; }
+  .nav-links, .site-nav--home .nav-shift { display: none; }
+  .hamburger { display: inline-flex; align-items: center; justify-content: center; }
+  .site-nav { padding: 16px; }
+  .site-nav--home { justify-content: flex-end; padding: 16px; }
+  .page-lede { font-size: 17px; }
+  .page-sub, .split .copy p, .info-section > p, .class-card p, .contact-map p, .vision p { font-size: 14px; }
+  .split .copy .list, .tutor-card .career, .gear-list { font-size: 13px; }
+  .featured-lede { font-size: 14px; }
+  .info-table { font-size: 13px; }
+  .footer-home .right { font-size: 14px; }
+
+  .hero { height: 560px; }
+  .hero-copy { padding: 76px 16px 0 16px; }
+  .wordmark { display: none; }
+  .wordmark-mobile { display: block; }
+  .hero-controls { right: 12px; bottom: 24px; }
+
+  .featured { padding: 72px 16px 88px 16px; }
+  .featured-grid { grid-template-columns: 1fr; row-gap: 24px; margin-top: 64px; }
+  .featured-lede { margin-top: 48px; }
+  .subjects { display: none; }
+
+  .page-head { padding: 72px 16px 0 16px; }
+  .page-lede { margin-top: 48px; }
+  .split { grid-template-columns: 1fr; row-gap: 32px; padding: 96px 16px 0 16px; }
+  .split .copy { padding-top: 0; }
+  .vision { padding: 96px 16px 0 16px; }
+  .gallery { padding: 120px 16px 0 16px; }
+  .gallery-cols { column-count: 1; }
+  .gear-section { padding: 96px 16px 0 16px; }
+  .class-grid { grid-template-columns: 1fr; padding: 80px 16px 0 16px; }
+  .inquiry-arrow { position: absolute; right: 16px; top: 72px; align-items: flex-end; gap: 8px; }
+  .inquiry-arrow svg { width: 56px; height: 56px; }
+  .inquiry-arrow span { font-size: 15px; }
+  .info-section { padding: 96px 16px 0 16px; }
+  .tutor-card { grid-template-columns: 1fr; row-gap: 24px; }
+
+  .footer-home { padding: 72px 16px 32px 16px; }
+  .footer-home .cols { grid-template-columns: 1fr; row-gap: 48px; }
+  .footer-home .right { text-align: left; align-items: flex-start; }
+  .contact-lines { text-align: left; }
+  .footer-slogan { margin-top: 64px; }
+  .footer-sub { flex-direction: column; align-items: flex-start; margin-top: 96px; padding: 32px 16px 24px 16px; }
+}
